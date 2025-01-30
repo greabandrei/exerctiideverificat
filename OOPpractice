@@ -1,0 +1,333 @@
+// 1. Person Class with Details
+// Write a JavaScript program to create a class called "Person" with properties for
+// name, age and country. Include a method to display the person's details.
+// Create two instances of the 'Person' class and display their details.
+
+class Person {
+     constructor(name, country, age) {
+        this.name = name;
+        this.age = age;
+        this.country = country;    
+    }
+    details(){
+        console.log('Hi, my name is',this.name,'i am from',this.country,'and i am',this.age,'years old')
+    }
+}
+
+let user1 = new Person('Alan', 'Germany', 29);
+let user2 = new Person('Vlad', 'Norway', 22)
+
+
+//2. Rectangle Class with Area and Perimeter
+// Write a JavaScript program to create a class called 'Rectangle' with properties
+// for width and height. Include two methods to calculate rectangle area and
+// perimeter. Create an instance of the 'Rectangle' class and calculate its area
+// and perimeter.
+/*
+class Rectangle {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+    perimeter(){
+        return (2 * this.width) + (2 * this.height)
+    }
+    area(){
+        return this.width * this.height
+    }
+}
+
+let square = new Rectangle(10, 5);
+*/
+
+////3.Vehicle and Car Classes with Inheritance
+// Write a JavaScript program that creates a class called 'Vehicle' with properties
+// for make, model, and year. Include a method to display vehicle details. Create a
+// subclass called 'Car' that inherits from the 'Vehicle' class and includes an
+// additional property for the number of doors. Override the display method to
+// include the number of doors.
+
+class Vehicle {
+    constructor(make, model, year){
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+    details(){
+        return `This vehicle is a ${this.make} ${this.model} and it was produced in ${this.year}`
+    }
+}
+
+class Car extends Vehicle {
+    constructor(make, model, year, doors) {
+        super(make, model, year)
+        this.doors = doors;
+    }
+    details() {
+        return `This vehicle is a ${this.make} ${this.model} and it was produced in ${this.year} and it has ${this.doors} doors`
+    }
+}
+
+let userOne = new Vehicle('dacia', 'sandero', 2019);
+let userTwo = new Car('Bmw', 'M', 2020, 5);
+
+
+
+//4. BankAccount Class with Deposit and Withdrawal
+// Write a JavaScript program that creates a class called "BankAccount" with
+//  properties for account number and balance. 
+//  Include methods to deposit and withdraw money from the account. 
+//  Create some instances of the "BankAccount" class, deposit some money, and withdraw a portion of it.
+
+class BankAccount {
+    constructor(accountNumber, balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+    deposit(number){
+        return this.balance = this.balance + number
+    }
+    withdraw(number){
+        return this.balance = this.balance - number;
+    }
+}
+
+let user4 = new BankAccount(222, 5000);
+
+
+
+//5. Shape, Circle, and Triangle Classes with Area Calculation
+// Write a JavaScript program that creates a class called 'Shape' with a method to
+// calculate the area. Create two subclasses, 'Circle' and 'Triangle', that inherit from
+// the 'Shape' class and override the area calculation method.
+// Create an instance of the 'Circle' class and calculate its area. 
+// Similarly, do the same for the 'Triangle' class.
+
+// class Shape {
+//     calculateArea(){
+//         throw new Error("Method 'calculateArea()' must be overridden in subclasses")
+//     }
+// }
+
+// class Circle extends Shape {
+//     constructor(radius) {
+//         super();
+//         this.radius = radius;
+//     }
+//     calculateArea() {
+//         return Math.PI * this.radius * this.radius
+//     }
+// }
+
+// class Rectangle extends Shape {
+//     constructor(width, height) {
+//         super();
+//         this.width = width;
+//         this.height = height;
+//     }
+//     calculateArea() {
+//         return this.width * this.height
+//     }
+// }
+
+// let circle = new Circle(5);
+// let rectangle = new Rectangle(4, 6);
+
+class Shape {
+    calculateArea() {
+        throw new Error("This method 'calculateArea' of a shape")
+    }
+}
+
+class Circle extends Shape {
+    constructor(radius) {
+        super();
+        this.radius = radius
+    }
+    calculateArea() {
+        return Math.PI * this.radius * this.radius
+    }
+}
+
+class Square extends Shape {
+    constructor(width) {
+        super();
+        this.width = width
+    }
+    calculateArea() {
+        return this.width * this.width
+    }
+}
+
+let circle = new Circle(10);
+let square = new Square();
+
+
+// //6.6. Employee and Manager Classes with Salary Calculation
+// Write a JavaScript program that creates a class called 'Employee' with properties for name and salary. 
+// Include a method to calculate annual salary. Create a subclass called 'Manager' that inherits from the 'Employee' class
+//  and adds an additional property for department. Override the annual salary calculation method to include bonuses for managers. 
+//  Create two instances of the 'Manager' class and calculate their annual salary.
+
+class Employee {
+    constructor(name, salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+    calculateAnnualSalary() {
+        return this.salary * 12
+    }
+}
+
+class Manager extends Employee {
+    constructor(name, salary, department, bonus) {
+        super(name, salary);
+        this.department = department;
+        this.bonus = bonus;
+    }
+    calculateAnnualSalary() {
+        return this.salary * 12 + (this.salary * 12) / 100 * this.bonus
+    }
+}
+
+let employee1 = new Employee('Marc', 2000);
+let manager1 = new Manager('Anton', 1000, 'IT', 10)
+
+
+
+//7.7. Book and Ebook Classes with Price
+// Write a JavaScript program that creates a class `Book` with properties for title, author, and publication year.
+//  Include a method to display book details. Create a subclass called 'Ebook' that inherits from the 'Book' class 
+//  and includes an additional property for book price. Override the display method to include the book price.
+//   Create an instance of the 'Ebook' class and display its details.
+
+class Book {
+    constructor(title, author, publication) {
+        this.title = title;
+        this.author = author;
+        this.publication = publication;
+    }
+    details() {
+        return `Title of the book is ${this.title}, the author of it is ${this.author} and it was published in ${publication}`
+    }
+}
+
+class Ebook extends Book {
+    constructor(title, author, publication, bookPrice) {
+        super(title, author, publication);
+        this.bookPrice = bookPrice;
+    }
+    details() {
+        return `Title of the book is ${this.title}, the author of it is ${this.author} and it was published in ${this.publication} and the price is ${this.bookPrice}$`
+    }
+}
+
+let ebook = new Ebook('Albert', 'Jack Cullin', 2021, 39.49);
+
+
+////8. Animal and Dog Classes with Sound
+// Write a JavaScript program that creates a class called 'Animal' with properties for species and sound. 
+// Include a method to make the animal's sound. Create a subclass called 'Dog' that inherits from the 'Animal' class 
+// and adds an additional property for color. Override the make sound method to include the dog's color. 
+// Create an instance of the 'Dog' class and make it make its sound.
+
+class Animal {
+    constructor(species, sound) {
+        this.species = species;
+        this.sound = sound;
+    }
+    animalSound() {
+        return `${this.species} makes ${this.sound}`
+    }
+}
+
+class Dog extends Animal {
+    constructor(species, sound, color) {
+        super(species, sound);
+        this.color = color;
+    }
+    animalSound() {
+        return `${this.species} makes ${this.sound} and has the color ${this.color}`
+    }
+}
+
+let dog = new Dog('Dog', 'ham ham', 'brown')
+
+
+////9.Bank Class with Branch Management
+// Write a JavaScript program that creates a class called Bank with properties for bank names and branches.
+// Include methods to add a branch, remove a branch, and display all branches. 
+// Create an instance of the Bank class and perform operations to add and remove branches.
+
+class Bank {
+    constructor(bankNames, branches) {
+        this.bankNames = bankNames;
+        this.branches = [];
+    }
+    addBranch(branch) {
+        this.branches.push(branch)
+        console.log(`${this.branches} added successfully`)
+    }
+
+    removeBranch(branch) {
+        const index = this.branches.indexOf(branch);
+        if(index !== -1) {
+            this.branches.splice(index, 1);
+            console.log(`Brach ${branch} removed successfully `)
+        }
+        else {
+            console.log(`${this.branches} does not exist`)
+        }
+    }
+
+    displayBranch() {
+        if(this.branches.length === 0) {
+            console.log("No branches available")
+        }
+        else {
+            console.log('List of Bank Branches:');
+            this.branches.forEach((branch, index) => {
+                console.log(`${index + 1}. ${branch}`);
+            });
+        }
+    }
+}
+
+const bank = new Bank();
+
+bank.addBranch('Branch A');
+bank.addBranch('Branch B');
+bank.addBranch('Branch C');
+
+
+////10. Product and PersonalCareProduct Classes with Warranty
+// Write a JavaScript program that creates a class called Product with properties for product ID, name, and price.
+// Include a method to calculate the total price by multiplying the price by the quantity. 
+// Create a subclass called PersonalCareProduct that inherits from the Product class and adds an additional property for the warranty period.
+// Override the total price calculation method to include the warranty period. Create an instance of the PersonalCareProduct class and calculate its total price.
+
+class Product {
+    constructor(ID, name, price) {
+        this.ID = ID;
+        this.name = name;
+        this.price = price;
+    }
+    totalPrice(quantity) {
+        return this.price * quantity
+    }
+}
+
+class PersonalCareProduct extends Product {
+    constructor(ID, name, price, warranty) {
+        super(ID, name, price);
+        this.warranty = warranty;
+    }
+    totalPrice(quantity) {
+        return `The total price is ${this.price * quantity} and has a warrant of ${this.warranty} years`
+    }
+}
+
+let nivea = new Product('Shampoo', 'Nivea', 11);
+let dove = new PersonalCareProduct('Shampoo', 'Dove', 12, 1);
+
+
